@@ -19,6 +19,10 @@ deident_names.txt
 *.vcf
 *.vcf.gz
 *.vcf.gz.tbi
+# Exception: de-identified single-locus extract, published openly. Enforced by
+# tests/test_wes.py (allowlist + identifier sweep + size ceiling).
+!data/wes/uba1_locus.bam
+!data/wes/uba1_locus.bam.bai
 *.g.vcf
 *.g.vcf.gz
 # The source sample sheet carries lab accession numbers -- never commit it.

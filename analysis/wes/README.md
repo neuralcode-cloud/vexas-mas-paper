@@ -9,6 +9,35 @@ data is deposited under controlled access (see the manuscript's Data
 Availability statement). `.gitignore` blocks `*.bam`, `*.bai`, `*.cram`,
 `*.crai`, `*.sam`, `*.fastq*`, `*.vcf*`.
 
+## Reproducing the outputs without the full exome
+
+The complete alignment carries the subject's germline genotype genome-wide and
+is available only under controlled access. Derived data sufficient to recompute
+both exome tables are committed here:
+
+| File | Contents |
+|---|---|
+| `../../data/wes/panel_depth_per_base.tsv.gz` | Depth at each of the 100,686 exonic bases of the panel (`chrom`, `pos`, `depth`; 1-based, hg19) |
+| `../../data/wes/uba1_locus_depth_per_base.tsv` | Depth at each base of chrX:47058151–47058751 |
+| `../../data/wes/uba1_locus.bam`, `.bai` | The 106 reads overlapping *UBA1* c.122, footprint chrX:47058123–47058981 |
+
+Depth was computed with `samtools depth -a -Q 13 -q 20`, the filters used for
+the published table. To recompute both tables and diff them against the
+committed values:
+
+```bash
+./analysis/wes/verify.sh
+```
+
+`qc_summary.csv` reports whole-BAM read counts from `samtools flagstat`, which
+require the full alignment; its depth fields are recomputable from the above.
+
+The *UBA1* extract is de-identified: the header declares only the contig
+dictionary, reference build, platform and the `UPN1` pseudonym; read names are
+sequential; instrument, run, chip, barcode, centre and timestamp fields and
+vendor flow-signal tags are removed. `tests/test_wes.py` enforces this, caps the
+file size, and keeps every other sequence-data extension blocked.
+
 ## Run
 
 ```bash

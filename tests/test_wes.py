@@ -126,14 +126,75 @@ def test_panel_definition_is_committed(panel):
 
 # ------------------------------------------------------- no raw sequence data
 
+# The only sequence files permitted in this repository. Each is a de-identified
+# single-locus extract small enough to publish openly; the full alignment is
+# deposited under controlled access. Any other sequence file fails the gate.
+ALLOWED_SEQUENCE_FILES = {
+    "uba1_locus.bam",
+    "uba1_locus.bam.bai",
+}
+
+
 def test_no_sequence_files_anywhere_in_the_repository():
-    """Raw sequence data is deposited under controlled access, not committed."""
+    """Raw sequence data is deposited under controlled access, not committed.
+
+    A narrow allowlist covers the de-identified UBA1 c.122 extract; everything
+    else with a sequence-data extension fails.
+    """
     bad = [p for p in ROOT.rglob("*")
            if p.is_file()
            and ".git" not in p.parts
            and p.suffix.lower() in {".bam", ".bai", ".cram", ".crai", ".sam",
-                                    ".vcf", ".fastq", ".fq"}]
+                                    ".vcf", ".fastq", ".fq"}
+           and p.name not in ALLOWED_SEQUENCE_FILES]
     assert not bad, f"sequence data present in repo: {[str(p) for p in bad]}"
+
+
+def test_allowed_slice_is_present_and_small():
+    """The allowlist must not outlive the file it exists for."""
+    bam = WES / "uba1_locus.bam"
+    assert bam.exists(), "allowlisted slice missing; remove it from the allowlist"
+    assert bam.stat().st_size < 1_000_000, (
+        f"{bam.name} is {bam.stat().st_size} bytes; the allowlist covers a "
+        "single-locus extract only"
+    )
+
+
+def test_slice_carries_no_laboratory_or_patient_identifiers():
+    """The BAM header and read records must stay de-identified.
+
+    A samtools region query copies the source header verbatim, so the extract
+    initially carried the internal sample label, sequencing-centre and
+    instrument identifiers, run and chip identifiers, barcode, and run
+    timestamps. This pins that they remain stripped.
+
+    Written as a positive contract on header structure rather than a blocklist
+    of literal identifier strings, so that this file does not itself carry the
+    values it exists to exclude.
+    """
+    import gzip
+    import re
+
+    text = gzip.open(WES / "uba1_locus.bam", "rb").read(2_000_000).decode("latin-1")
+    header = text[:text.find("\x00")] if "\x00" in text else text
+
+    # SAM read-group tags that identify a centre, run, chip, barcode or date.
+    banned_tags = ["CN", "DT", "PU", "KS", "FO", "LB"]
+    present = [t for t in banned_tags if re.search(rf"\t{t}:", header)]
+    assert not present, f"identifying @RG tags present: {present}"
+
+    # The only sample name may be the manuscript pseudonym.
+    samples = set(re.findall(r"\tSM:([^\t\n]+)", header))
+    assert samples <= {"UPN1"}, f"unexpected sample name(s): {samples}"
+
+    # No ISO timestamps and no absolute filesystem paths anywhere in the file.
+    assert not re.search(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}", text), "timestamp present"
+    assert not re.search(r"(?<![\w.])/(?:results|data|home|Users)/", text), "path present"
+
+    # Read names must be the sequential replacements, not instrument-assigned.
+    names = re.findall(rb"[\x20-\x7e]{6,40}", gzip.open(WES / "uba1_locus.bam", "rb").read())
+    instrument_like = [n for n in names if re.fullmatch(rb"[A-Z0-9]{5}:\d+:\d+", n)]
+    assert not instrument_like, f"instrument read names present: {instrument_like[:3]}"
 
 
 def test_gitignore_blocks_sequence_extensions():
