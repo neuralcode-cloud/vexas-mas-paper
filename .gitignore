@@ -6,7 +6,7 @@ __pycache__/
 .venv/
 deident_names.txt
 
-# Sequence data: identifying and/or too large for git. Deposit in EGA.
+# Sequence data: identifying and/or too large for git.
 *.bam
 *.bai
 *.cram

@@ -1,6 +1,6 @@
 {
   "title": "Analysis code for: VEXAS and Macrophage Activation Syndrome — clinical and multiomic approach of a unique hyperinflammatory clinical dyad",
-  "description": "Analysis code and de-identified source data reproducing the cytokine, flow-cytometry, Olink Reveal proteomic and whole-exome summary results reported in the manuscript. Raw sequence data and the full proteomic plate export are not included; they are deposited under controlled access (see the manuscript's Data Availability statement).",
+  "description": "Analysis code and de-identified source data reproducing the cytokine, flow-cytometry, Olink Reveal proteomic and whole-exome summary results reported in the manuscript. The complete whole-exome alignment and the full proteomic plate export are not included; access to them may be requested from the corresponding author (see the manuscript's Data Availability statement).",
   "upload_type": "software",
   "license": "mit",
   "access_right": "open",
