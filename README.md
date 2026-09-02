@@ -81,11 +81,11 @@ manuscript's Data Availability statement.
 ## Citation
 
 See `CITATION.cff`. Archived snapshots of this repository are deposited on
-Zenodo. Cite the concept DOI, which resolves to the latest version:
+Zenodo under the concept DOI, which always resolves to the latest release:
 
-    10.5281/zenodo.22256790
+    https://doi.org/10.5281/zenodo.22256790
 
-The snapshot released alongside the manuscript is v1.0.0, DOI 10.5281/zenodo.22256791.
+Individual release DOIs are listed on that record.
 
 ## License
 

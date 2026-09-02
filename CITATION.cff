@@ -78,5 +78,4 @@ authors:
   - family-names: "Gurnari"
     given-names: "Carmelo"
 doi: 10.5281/zenodo.22256790
-version: v1.0.0
 repository-code: "https://github.com/neuralcode-cloud/vexas-mas-paper"
