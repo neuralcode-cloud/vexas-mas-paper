@@ -6,3 +6,7 @@ abstract: >-
   activation syndrome, including Crawford-Howell single-case inference for
   cytokine and flow-cytometry comparisons.
 license: MIT
+# doi: 10.5281/zenodo.XXXXXXX   # uncomment and fill on Zenodo release
+# authors:                       # complete from the manuscript author list
+#   - family-names: ""
+#     given-names: ""

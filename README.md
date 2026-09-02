@@ -80,7 +80,8 @@ manuscript's Data Availability statement.
 
 ## Citation
 
-See `CITATION.cff`.
+See `CITATION.cff`. An archived snapshot of this repository is deposited on
+Zenodo: DOI [TO BE ADDED ON RELEASE].
 
 ## License
 
