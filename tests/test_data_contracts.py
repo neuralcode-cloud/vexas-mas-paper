@@ -26,8 +26,8 @@ SUBJECT_OK = re.compile(r"^(UPN\d+|CTRL\d+|HRMDS\d+|POOL|NA)$")
 # Anything that looks like a real-world date: these are identifying under HIPAA
 # safe-harbour; timepoints are relative labels instead.
 DATE_LIKE = re.compile(
-    r"\b(?:\d{1,2}[./-]\d{1,2}[./-]\d{2,4}"      # 23/01/2026, 1-2-26
-    r"|\d{4}[./-]\d{1,2}[./-]\d{1,2})\b"          # 2026-01-23
+    r"\b(?:\d{1,2}[./-]\d{1,2}[./-]\d{2,4}"      # d/m/y and d-m-y forms
+    r"|\d{4}[./-]\d{1,2}[./-]\d{1,2})\b"          # y-m-d form
 )
 
 # A month name adjacent to a day or year number. The adjacent number is part

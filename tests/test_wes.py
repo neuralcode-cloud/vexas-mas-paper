@@ -127,8 +127,8 @@ def test_panel_definition_is_committed(panel):
 # ------------------------------------------------------- no raw sequence data
 
 # The only sequence files permitted in this repository. Each is a de-identified
-# single-locus extract small enough to publish openly; the full alignment is
-# deposited under controlled access. Any other sequence file fails the gate.
+# single-locus extract small enough to publish openly; the full alignment is not
+# publicly released. Any other sequence file fails the gate.
 ALLOWED_SEQUENCE_FILES = {
     "uba1_locus.bam",
     "uba1_locus.bam.bai",
@@ -136,7 +136,7 @@ ALLOWED_SEQUENCE_FILES = {
 
 
 def test_no_sequence_files_anywhere_in_the_repository():
-    """Raw sequence data is deposited under controlled access, not committed.
+    """Whole-exome alignments are not committed to this repository.
 
     A narrow allowlist covers the de-identified UBA1 c.122 extract; everything
     else with a sequence-data extension fails.

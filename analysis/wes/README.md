@@ -4,16 +4,17 @@ Produces the exome QC and locus summary tables.
 
 ## Input
 
-A BAM aligned to hg19 / GRCh37. Not included in this repository — raw sequence
-data is deposited under controlled access (see the manuscript's Data
-Availability statement). `.gitignore` blocks `*.bam`, `*.bai`, `*.cram`,
-`*.crai`, `*.sam`, `*.fastq*`, `*.vcf*`.
+A BAM aligned to hg19 / GRCh37. Not included in this repository: aligned
+whole-exome reads carry the subject's germline genotype genome-wide and are not
+publicly released (see the manuscript's Data Availability statement).
+`.gitignore` blocks `*.bam`, `*.bai`, `*.cram`, `*.crai`, `*.sam`, `*.fastq*`,
+`*.vcf*`, with a narrow exception for the de-identified single-locus extract
+described below.
 
 ## Reproducing the outputs without the full exome
 
-The complete alignment carries the subject's germline genotype genome-wide and
-is available only under controlled access. Derived data sufficient to recompute
-both exome tables are committed here:
+The complete alignment is not publicly released. Derived data sufficient to
+recompute both exome tables are committed here:
 
 | File | Contents |
 |---|---|

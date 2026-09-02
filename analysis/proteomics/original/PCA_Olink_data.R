@@ -1,9 +1,10 @@
 # ==============================================================================
 # Script Name: PCA for Olink Data
 # Manuscript: "VEXAS and Macrophage Activation Syndrome: clinical and multiomic approach of a unique hyperinflammatory clinical dyad"
-# Provenance: script as received from the study team. The only change is the
-# removal of personal credit lines and internal laboratory identifiers; no
-# code or logic was altered. See ../README.md.
+# Provenance: script as received from the study team. The only changes are the
+# removal of personal credit lines, internal laboratory identifiers, and a
+# calendar date in an input filename; no code or logic was altered.
+# See ../README.md.
 
 # 1. LIBRARIES and FUNCTIONS ---------------------------------------------------------
 if (!requireNamespace("OlinkAnalyze", quietly = TRUE))
@@ -82,7 +83,7 @@ PCA_plot <- function(db_pca_npx, db_meta, type, var_for_color){
 # Upload npx matrix of Reveal plate
 import <- OlinkAnalyze::read_NPX("path/to/olinkplate/export")
 # Upload annotation file for timepoint
-metadata <- readxl::read_xlsx("./data/ListOfSamples 18-03-2026.xlsx", sheet = 2, range = "A1:E87")
+metadata <- readxl::read_xlsx("./data/ListOfSamples.xlsx", sheet = 2, range = "A1:E87")
 # Rename columns
 colnames(metadata) <- c("PatientID", "ExpSampleID", "Age", "Sex", "Annotation")
 # Keep the Annotation column order unchanged
