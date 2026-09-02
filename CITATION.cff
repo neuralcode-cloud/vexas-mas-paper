@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated manuscript."
+title: "VEXAS/MAS multiomic study - analysis code"
+abstract: >-
+  Analysis code for a multiomic characterization of VEXAS-associated macrophage
+  activation syndrome, including Crawford-Howell single-case inference for
+  cytokine and flow-cytometry comparisons.
+license: MIT

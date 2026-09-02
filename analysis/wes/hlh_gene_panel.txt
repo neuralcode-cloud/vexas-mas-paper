@@ -1,0 +1,30 @@
+# Familial-HLH / inborn-errors-of-immunity genes interrogated for the
+# 'no constitutional mutation' statement. GRCh37/hg19 canonical transcripts
+# (Ensembl GRCh37 REST). One gene per line.
+ADA2
+AP3B1
+CD27
+CD70
+CDC42
+CTLA4
+IL1RN
+IRF8
+ITK
+LYST
+MAGT1
+MEFV
+NLRC4
+NLRP3
+PRF1
+RAB27A
+RASGRP1
+SH2D1A
+SLC29A3
+SLC7A7
+STAT1
+STAT3
+STX11
+STXBP2
+TNFRSF9
+UNC13D
+XIAP

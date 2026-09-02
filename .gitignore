@@ -1,0 +1,31 @@
+outputs/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+.venv/
+deident_names.txt
+
+# Sequence data: identifying and/or too large for git. Deposit in EGA.
+*.bam
+*.bai
+*.cram
+*.crai
+*.sam
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.vcf
+*.vcf.gz
+*.vcf.gz.tbi
+*.g.vcf
+*.g.vcf.gz
+# The source sample sheet carries lab accession numbers -- never commit it.
+ListOfSamples*.xlsx
+
+# Publication tooling: operational, not part of the reproduction material.
+publish.sh
+PUBLISH.md
+deident_names.txt.example
+tests/test_no_personal_names.py

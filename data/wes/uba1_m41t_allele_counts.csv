@@ -1,0 +1,7 @@
+locus,base_quality_min,mapping_quality_min,depth,T_ref,C_alt,A,G,deletion,vaf_pct,vaf_95pct_upper_bound
+"chrX:47058451 (UBA1 c.122, ref T; p.Met41Thr = T>C)",0,0,29,27,0,0,0,2,0.0,9.8
+"chrX:47058451 (UBA1 c.122, ref T; p.Met41Thr = T>C)",0,20,29,27,0,0,0,2,0.0,9.8
+"chrX:47058451 (UBA1 c.122, ref T; p.Met41Thr = T>C)",13,0,28,26,0,0,0,2,0.0,10.1
+"chrX:47058451 (UBA1 c.122, ref T; p.Met41Thr = T>C)",13,20,28,26,0,0,0,2,0.0,10.1
+"chrX:47058451 (UBA1 c.122, ref T; p.Met41Thr = T>C)",20,0,21,21,0,0,0,0,0.0,13.3
+"chrX:47058451 (UBA1 c.122, ref T; p.Met41Thr = T>C)",20,20,21,21,0,0,0,0,0.0,13.3

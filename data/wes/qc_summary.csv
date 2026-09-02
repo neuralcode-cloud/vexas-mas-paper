@@ -1,0 +1,17 @@
+metric,value
+sample_label,index case (single subject)
+assay,"clinical exome (Clinex Cap Pro, 4Bases)"
+platform,"Ion S5 Prime (Thermo Fisher), barcoded single-plex library"
+reference_build,"hg19 / GRCh37 (25 contigs, chr-prefixed)"
+aligner,tmap (Torrent Suite v5.18.2)
+library_type,single-end (0 paired reads)
+total_reads,31176237
+mapped_reads,30934525
+mapped_pct,99.22
+unmapped_reads,241712
+duplicates_marked,0
+read_length_median_bp,173
+read_length_p90_bp,233
+panel_exonic_weighted_mean_depth_x,26.7
+uba1_exonic_mean_depth_x,23.5
+uba1_exonic_pct_ge20x,69.3
