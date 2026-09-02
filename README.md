@@ -80,12 +80,7 @@ manuscript's Data Availability statement.
 
 ## Citation
 
-See `CITATION.cff`. Archived snapshots of this repository are deposited on
-Zenodo under the concept DOI, which always resolves to the latest release:
-
-    https://doi.org/10.5281/zenodo.22256790
-
-Individual release DOIs are listed on that record.
+See `CITATION.cff`.
 
 ## License
 
